@@ -8,6 +8,7 @@ call plug#begin()
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
   Plug 'andweeb/presence.nvim'
   Plug 'folke/tokyonight.nvim'
+  Plug 'szw/vim-g'
 call plug#end()
 
 " setup NERDTree
@@ -35,3 +36,4 @@ set number
 set encoding=utf8
 set autoindent
 set smartindent
+hi Normal guibg=NONE ctermbg=NONE
