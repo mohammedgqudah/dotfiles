@@ -9,6 +9,7 @@ call plug#begin()
   Plug 'andweeb/presence.nvim'
   Plug 'folke/tokyonight.nvim'
   Plug 'szw/vim-g'
+  Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
 " setup NERDTree
@@ -31,9 +32,14 @@ nmap <C-J> <C-w>j
 nmap <C-K> <C-w>k
 nmap <C-L> <C-w>l
 
+" --- Terminal ---
+" map \+t to open a terminal
+nnoremap <leader>t <cmd>tabnew +term<CR><ins>
+" map escape to exit TERMINAL mode and go to NORMAL mode
+tnoremap <esc> <c-\><c-n>
 
 set number
 set encoding=utf8
 set autoindent
 set smartindent
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
