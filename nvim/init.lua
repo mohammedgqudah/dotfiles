@@ -13,8 +13,21 @@ vim.cmd [[
 	Plug 'lukas-reineke/indent-blankline.nvim'
 	Plug 'lewis6991/gitsigns.nvim'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'rebelot/kanagawa.nvim'
   call plug#end()
 ]]
+
+require('kanagawa').setup({
+	colors = {
+		theme = {
+			all = {
+				ui = {
+					bg_gutter = "none" -- remove the gutter/line-numbers background
+				}
+			}
+		}
+	}
+})
 
 require('nvim-treesitter.configs').setup({
 	ensure_installed = {'lua', 'python', 'php'},
@@ -57,7 +70,7 @@ vim.cmd [[
    runtime lua/modules/luasnip.lua
 ]]
 
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme('kanagawa-wave')
 
 vim.cmd.set('number')
 vim.cmd.set('autoindent')

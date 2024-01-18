@@ -37,4 +37,4 @@ u.noremap('v', '"', f(enclose, '"', '"'))
 u.noremap('v', '[', f(enclose, '[', ']'))
 
 -- SEARCH
-u.noremap('n', '<esc><esc>', '<cmd>noh<CR>')
+-- u.noremap('n', '<esc><esc>', '<cmd>noh<CR>')
