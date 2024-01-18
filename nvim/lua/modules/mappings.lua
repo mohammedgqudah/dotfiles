@@ -14,6 +14,7 @@ u.noremap('n', '<C-J>', '<C-w>j')
 u.noremap('n', '<C-K>', '<C-w>k')
 u.noremap('n', '<C-L>', '<C-w>l')
 u.noremap('n', '<Tab>', '<cmd>tabnext<CR>')
+u.noremap('n', '<S-Tab>', '<cmd>tabprevious<CR>')
 
 -- Telescope
 u.noremap('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
@@ -21,9 +22,19 @@ u.noremap('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
 -- NERDTree
 u.noremap('n', '<C-t>', '<cmd>NERDTreeToggle<CR>')
 
-
+-- INSERT
 u.noremap('i', 'ii', '<esc>')
 u.noremap('i', '\'', '\'\'<left>')
 u.noremap('i', '"', '""<left>')
 u.noremap('i', '(', '()<left>')
 u.noremap('i', '{', '{}<left>')
+
+-- VISUAL
+f = string.format
+enclose = 'c%s%s<left><esc>p'
+
+u.noremap('v', '"', f(enclose, '"', '"'))
+u.noremap('v', '[', f(enclose, '[', ']'))
+
+-- SEARCH
+u.noremap('n', '<esc><esc>', '<cmd>noh<CR>')
