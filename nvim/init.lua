@@ -54,8 +54,14 @@ require('ibl').setup({
 	}
 })
 require('lualine').setup({
-	disabled_filetypes = {
-		statusline = {'nerdtree'}
+	options = {
+		disabled_filetypes = {
+			statusline = {'nerdtree'}
+		},
+		--component_separators = { left = '', right = ''},
+		--section_separators = { left = '', right = ''},
+		component_separators = { left = '|', right = '|'},
+		section_separators = { left = '', right = ''},
 	}
 })
 
