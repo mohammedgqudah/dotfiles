@@ -17,24 +17,27 @@ u.noremap('n', '<Tab>', '<cmd>tabnext<CR>')
 u.noremap('n', '<S-Tab>', '<cmd>tabprevious<CR>')
 
 -- Telescope
-u.noremap('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+local telescope = require('telescope.builtin')
+u.noremap('n', '<leader>ff', telescope.find_files)
+u.noremap('n', '<leader>fb', telescope.buffers)
+u.noremap('n', '<leader>fg', telescope.live_grep)
 
 -- NERDTree
 u.noremap('n', '<C-t>', '<cmd>NERDTreeToggle<CR>')
 
 -- INSERT
 u.noremap('i', 'ii', '<esc>')
-u.noremap('i', '\'', '\'\'<left>')
-u.noremap('i', '"', '""<left>')
-u.noremap('i', '(', '()<left>')
-u.noremap('i', '{', '{}<left>')
+--u.noremap('i', '\'', '\'\'<left>')
+--u.noremap('i', '"', '""<left>')
+--u.noremap('i', '(', '()<left>')
+--u.noremap('i', '{', '{}<left>')
 
 -- VISUAL
-f = string.format
-enclose = 'c%s%s<left><esc>p'
-
-u.noremap('v', '"', f(enclose, '"', '"'))
-u.noremap('v', '[', f(enclose, '[', ']'))
+--f = string.format
+--enclose = 'c%s%s<left><esc>p'
+--
+--u.noremap('v', '"', f(enclose, '"', '"'))
+--u.noremap('v', '[', f(enclose, '[', ']'))
 
 -- SEARCH
 -- u.noremap('n', '<esc><esc>', '<cmd>noh<CR>')
