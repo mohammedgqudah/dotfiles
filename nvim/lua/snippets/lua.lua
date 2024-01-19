@@ -48,6 +48,15 @@ return {
 	}, fmt(
 		"vim.cmd.{}({})",
 		{i(1), i(2)}
+	)),
+	s({
+		trig = "plug",
+		desc = "add a Plug [plug]in"
+	}, fmt(
+		[[
+			Plug '{}'
+		]],
+		{i(1)}
 	))
 }
 
