@@ -44,3 +44,16 @@ u.noremap('i', 'ii', '<esc>')
 
 -- SEARCH
 -- u.noremap('n', '<esc><esc>', '<cmd>noh<CR>')
+
+
+-- Laravel
+u.noremap('n', '<leader>t', function ()
+	local testName = u.getFunctionName()
+	if testName == nil then
+		print("nil testName")
+		return nil
+	end
+
+	vim.cmd('below 12new')
+	vim.cmd('terminal php artisan test --filter ' .. testName)
+end)
