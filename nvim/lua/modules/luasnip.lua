@@ -27,5 +27,5 @@ local i = ls.insert_node
 -- repeat node
 local rep = require('luasnip.extras').rep
 local t = ls.text_node
-
+local f = ls.function_node
 

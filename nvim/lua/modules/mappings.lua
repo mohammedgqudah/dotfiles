@@ -6,7 +6,7 @@ u.noremap('n', '<leader>cc', '<cmd>tabnew $MYVIMRC<CR>')
 
 -- TERMINAL --
 u.noremap('t', '<esc>', '<C-\\><C-n>') -- map <esc> to normal mode
-u.noremap('n', '<leader>t', '<cmd>tabnew +term<CR>') -- open a new terminal tab
+--u.noremap('n', '<leader>t', '<cmd>tabnew +term<CR>') -- open a new terminal tab
 
 -- TABS
 u.noremap('n', '<C-H>', '<C-w>h')
@@ -19,7 +19,10 @@ u.noremap('n', '<S-Tab>', '<cmd>tabprevious<CR>')
 -- Telescope
 local telescope = require('telescope.builtin')
 u.noremap('n', '<leader>ff', telescope.find_files)
-u.noremap('n', '<leader>fb', telescope.buffers)
+u.noremap('n', '<leader>fb', function ()
+	-- show buffers for the current directory only - usefull to have buffers per tab.
+	require('telescope.builtin').buffers({ only_cwd = vim.fn.haslocaldir() == 1 })
+end)
 u.noremap('n', '<leader>fg', telescope.live_grep)
 
 -- NERDTree

@@ -34,8 +34,12 @@ vim.cmd.colorscheme('kanagawa-wave')
 vim.cmd.set('number')
 vim.cmd.set('autoindent')
 vim.cmd.set('smartindent')
-vim.api.nvim_set_option('tabstop', 2)
+vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
+
+vim.cmd [[
+	hi Normal guibg=NONE ctermbg=NONE
+]]
 
 -- TODO: convert to lua
 vim.cmd [[

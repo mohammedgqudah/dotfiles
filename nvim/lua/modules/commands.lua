@@ -3,8 +3,9 @@ local u = require('modules.util')
 
 -- MISC
 vim.api.nvim_create_user_command('Todo', ':tabnew ~/.todo.md', {}) -- open the quick todo file
+vim.api.nvim_create_user_command('ETodo', ':e ~/.todo.md', {})     -- open the quick todo file in the current window
 
-vim.api.nvim_create_user_command('GoTest', function ()
+vim.api.nvim_create_user_command('GoTest', function()
 	local file_relative_path = u.relative_path()
 
 	-- remove /app because the Tests directory doesn't include it.
@@ -22,11 +23,11 @@ vim.api.nvim_create_user_command('GoTest', function ()
 	local test_file_path = vim.fn.getcwd() .. '/tests/Feature/' .. path .. '/' .. name .. 'Test.' .. ext
 
 	if vim.fn.filereadable(test_file_path) == 0 then
-		local create_test_file = u.confirm("'%s' doesn't exist, do you want to create it? (y/n): ", {test_file_path})
+		local create_test_file = u.confirm("'%s' doesn't exist, do you want to create it? (y/n): ", { test_file_path })
 		if not create_test_file then
 			return
 		end
-		u.writeFile({""}, test_file_path)
+		u.writeFile({ "" }, test_file_path)
 	end
 
 	vim.api.nvim_command(string.format("e %s", test_file_path))

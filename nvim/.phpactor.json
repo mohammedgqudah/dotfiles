@@ -1,0 +1,10 @@
+{
+    "$schema": "/phpactor.schema.json",
+    "language_server.diagnostics_on_update": false,
+    "indexer.exclude_patterns": [
+        "/vendor/**/Tests/**/*",
+        "/vendor/**/tests/**/*",
+        "/var/cache/**/*",
+        "/vendor/composer/**/*"
+    ]
+}
