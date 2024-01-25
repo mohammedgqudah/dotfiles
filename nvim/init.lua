@@ -39,6 +39,7 @@ vim.api.nvim_set_option('shiftwidth', 4)
 
 vim.cmd [[
 	hi Normal guibg=NONE ctermbg=NONE
+	hi Visual guibg=#182333
 ]]
 
 -- TODO: convert to lua
