@@ -18,6 +18,7 @@ u.noremap('n', '<S-Tab>', '<cmd>tabprevious<CR>')
 
 -- Telescope
 local telescope = require('telescope.builtin')
+u.noremap('n', '<leader>git', telescope.git_status)
 u.noremap('n', '<leader>ff', telescope.find_files)
 u.noremap('n', '<leader>fb', function ()
 	-- show buffers for the current directory only - usefull to have buffers per tab.
