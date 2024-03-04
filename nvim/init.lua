@@ -18,6 +18,8 @@ vim.cmd [[
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'saadparwaiz1/cmp_luasnip'
+	Plug 'navarasu/onedark.nvim'
+  	Plug 'Yoolayn/nvim-intro'
   call plug#end()
 ]]
 
@@ -29,18 +31,20 @@ vim.cmd [[
    runtime lua/modules/luasnip.lua
 ]]
 
-vim.cmd.colorscheme('kanagawa-wave')
+require('onedark').load()
+vim.cmd.colorscheme('onedark')
 
 vim.cmd.set('number')
+vim.cmd.set('relativenumber')
 vim.cmd.set('autoindent')
 vim.cmd.set('smartindent')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
 
-vim.cmd [[
-	hi Normal guibg=NONE ctermbg=NONE
-	hi Visual guibg=#182333
-]]
+--vim.cmd [[
+--	hi Normal guibg=NONE ctermbg=NONE
+--	hi Visual guibg=#182333
+--]]
 
 -- TODO: convert to lua
 vim.cmd [[
@@ -49,4 +53,3 @@ vim.cmd [[
    autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
    " autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 ]]
-

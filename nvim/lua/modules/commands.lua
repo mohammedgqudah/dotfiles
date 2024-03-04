@@ -4,6 +4,7 @@ local u = require('modules.util')
 -- MISC
 vim.api.nvim_create_user_command('Todo', ':tabnew ~/.todo.md', {}) -- open the quick todo file
 vim.api.nvim_create_user_command('ETodo', ':e ~/.todo.md', {})     -- open the quick todo file in the current window
+vim.api.nvim_create_user_command('Pint', ":!./vendor/laravel/pint/builds/pint <args>", {})     -- open the quick todo file in the current window
 
 vim.api.nvim_create_user_command('GoTest', function()
 	local file_relative_path = u.relative_path()
