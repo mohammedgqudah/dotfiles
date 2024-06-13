@@ -19,7 +19,11 @@ vim.cmd [[
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'saadparwaiz1/cmp_luasnip'
 	Plug 'navarasu/onedark.nvim'
-  	Plug 'Yoolayn/nvim-intro'
+	Plug 'Yoolayn/nvim-intro'
+	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+	Plug 'marko-cerovac/material.nvim'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'neanias/everforest-nvim', { 'branch': 'main' }
   call plug#end()
 ]]
 
@@ -31,11 +35,13 @@ vim.cmd [[
    runtime lua/modules/luasnip.lua
 ]]
 
-require('onedark').load()
+--require('everforest').load()
+vim.cmd.colorscheme('material-oceanic')
 vim.cmd.colorscheme('onedark')
 
 vim.cmd.set('number')
 vim.cmd.set('relativenumber')
+vim.cmd.set('cursorline')
 vim.cmd.set('autoindent')
 vim.cmd.set('smartindent')
 vim.api.nvim_set_option('tabstop', 4)
@@ -52,4 +58,5 @@ vim.cmd [[
    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
    autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
    " autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+   let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 ]]

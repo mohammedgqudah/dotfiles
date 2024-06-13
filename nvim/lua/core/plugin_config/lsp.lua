@@ -1,5 +1,31 @@
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+
+local util = require('lspconfig/util')
+local path = util.path
+
+local function get_python_path(workspace)
+  -- Use activated virtualenv.
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+  end
+  -- Find and use virtualenv in workspace directory.
+  for _, pattern in ipairs({'*', '.*'}) do
+    local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+    if match ~= '' then
+      return path.join(path.dirname(match), 'bin', 'python')
+    end
+  end
+  -- Fallback to system Python.
+  return exepath('python3') or exepath('python') or 'python'
+end
+
+require('lspconfig').pyright.setup({
+  before_init = function(_, config)
+    config.settings.python.pythonPath = get_python_path(config.root_dir)
+  end
+})
+
 -- make sure to disable diagnostics and ignore vendor directory to improve performance
 -- `$ phpactor config:set language_server.diagnostics_on_update false`
 -- `$ phpactor config:set indexer.exclude_patterns '["/vendor/**/Tests/**/*","/vendor/**/tests/**/*","/var/cache/**/*","/vendor/composer/**/*"]'`
@@ -16,19 +42,6 @@ require('lspconfig').lua_ls.setup({
 			}
 		}
 	},
-})
-
-require('lspconfig').pylsp.setup({
-	settings = {
-		pylsp = {
-			plugins = {
-				pycodestyle = {
-					ignore = { 'W391' },
-					maxLineLength = 100
-				}
-			}
-		}
-	}
 })
 
 require('lspconfig').clangd.setup({})
