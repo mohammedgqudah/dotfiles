@@ -24,6 +24,7 @@ vim.cmd [[
 	Plug 'marko-cerovac/material.nvim'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'neanias/everforest-nvim', { 'branch': 'main' }
+  	Plug 'williamboman/mason.nvim'
   call plug#end()
 ]]
 
@@ -36,21 +37,21 @@ vim.cmd [[
 ]]
 
 --require('everforest').load()
-vim.cmd.colorscheme('material-oceanic')
-vim.cmd.colorscheme('onedark')
+--vim.cmd.colorscheme('material-oceanic')
+vim.cmd.colorscheme('kanagawa-dragon')
 
 vim.cmd.set('number')
 vim.cmd.set('relativenumber')
-vim.cmd.set('cursorline')
+--vim.cmd.set('cursorline')
 vim.cmd.set('autoindent')
 vim.cmd.set('smartindent')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
 
---vim.cmd [[
---	hi Normal guibg=NONE ctermbg=NONE
---	hi Visual guibg=#182333
---]]
+vim.cmd [[
+	hi Normal guibg=NONE ctermbg=NONE
+	hi Visual guibg=#182333
+]]
 
 -- TODO: convert to lua
 vim.cmd [[
