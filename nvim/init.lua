@@ -26,6 +26,7 @@ vim.cmd [[
 	Plug 'neanias/everforest-nvim', { 'branch': 'main' }
 	Plug 'williamboman/mason.nvim'
 	Plug 'arcticicestudio/nord-vim'
+	Plug 'christoomey/vim-tmux-navigator'
   call plug#end()
 ]]
 
