@@ -38,7 +38,10 @@ require('lspconfig').lua_ls.setup({
 	},
 })
 
-require('lspconfig').clangd.setup({})
+require('lspconfig').clangd.setup({
+	-- remove .proto files
+	filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+})
 
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
