@@ -25,5 +25,20 @@ return {
 			inc = i(5, "i++"),
 			last = i(6),
 		}
+	)),
+	s({
+		trig = "ifns",
+		desc = "if function call was not succcessful"
+	}, fmt(
+		[[
+			if ({func}({arg}) != 0) {{
+				{inner}
+			}}
+		]],
+		{
+			func = i(1),
+			arg = i(2),
+			inner = i(3),
+		}
 	))
 }

@@ -1,0 +1,19 @@
+source ~/.config/.mutt/colorschemes/nord
+
+set spoolfile = "+INBOX"
+set record = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+set trash = "+[Gmail]/Trash"
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+set move = no
+
+
+# scroll line by line
+set menu_scroll
+
+set editor='nvim'
+bind index G imap-fetch-mail
+
