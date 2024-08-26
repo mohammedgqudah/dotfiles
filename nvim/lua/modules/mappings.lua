@@ -58,3 +58,7 @@ u.noremap('n', '<leader>t', function ()
 	vim.cmd('below 12new')
 	vim.cmd('terminal php artisan test --filter ' .. testName)
 end)
+
+-- MISC
+u.noremap('n', 'o', 'o<esc>')
+u.noremap('n', 'O', 'O<esc>')
