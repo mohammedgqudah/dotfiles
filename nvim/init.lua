@@ -32,11 +32,6 @@ vim.cmd [[
    runtime lua/modules/luasnip.lua
 ]]
 
---require('everforest').load()
---vim.cmd.colorscheme('material-oceanic')
---vim.cmd.colorscheme('kanagawa-dragon')
---vim.cmd.colorscheme('tokyonight-night')
---vim.cmd.colorscheme('onedark')
 vim.cmd.colorscheme('nord')
 
 
