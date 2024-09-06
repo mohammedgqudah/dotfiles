@@ -1,3 +1,6 @@
+PS1='%F{blue}>>%f '
+plugins=(git)
+
 # aliases
 #
 alias zshconfig="nvim ~/.config/.zshrc"
@@ -21,6 +24,7 @@ function ticket() {
 . "$HOME/.cargo/env"
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # auto complete
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
