@@ -25,12 +25,9 @@ vim.cmd [[
 ]]
 
 require('core.plugin_config')
-
-vim.cmd [[
-   runtime lua/modules/mappings.lua
-   runtime lua/modules/commands.lua
-   runtime lua/modules/luasnip.lua
-]]
+require('modules.mappings')
+require('modules.commands')
+require('modules.luasnip')
 
 vim.cmd.colorscheme('nord')
 
