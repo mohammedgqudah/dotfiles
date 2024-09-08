@@ -1,5 +1,4 @@
 precmd() {
-	print ""
 	print -rP "%F{blue}[%~]%f"
 }
 PS1='%F{blue}>>%f '
