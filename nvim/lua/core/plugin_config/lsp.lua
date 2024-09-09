@@ -18,7 +18,7 @@ require('lspconfig').pyright.setup({
 	venv = ".venv"
 })
 
-require('lspconfig').tsserver.setup({})
+--require('lspconfig').tsserver.setup({})
 
 -- make sure to disable diagnostics and ignore vendor directory to improve performance
 -- `$ phpactor config:set language_server.diagnostics_on_update false`
