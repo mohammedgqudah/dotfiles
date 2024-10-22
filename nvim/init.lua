@@ -21,6 +21,7 @@ vim.cmd [[
 	Plug 'williamboman/mason.nvim'
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
   call plug#end()
 ]]
 
@@ -30,6 +31,8 @@ require('modules.commands')
 require('modules.luasnip')
 
 vim.cmd.colorscheme('nord')
+-- in nord the WinSeparator color is white (not on all terminals anyway)
+vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#3b4252" })
 
 
 vim.cmd.set('number')
@@ -40,21 +43,28 @@ vim.cmd.set('smartindent')
 vim.api.nvim_set_option('tabstop', 4)
 vim.api.nvim_set_option('shiftwidth', 4)
 
+vim.opt.termguicolors = true
+--vim.wo.foldmethod = 'expr'
+--vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+
+-- white cursor for insert mode, blue for normal.
+vim.api.nvim_set_hl(0, 'NormalCursor', { fg = '#5E81AC', bg = '#81A1C1' })
+vim.api.nvim_set_hl(0, 'InsertCursor', { fg = '#FFFFFF', bg = '#FFFFFF' })
+vim.opt.guicursor = {
+    'n:block-NormalCursor/lNormalCursor',
+    'i:block-InsertCursor/lInsertCursor'
+}
+
+
+vim.g.NERDTreeIgnore = { '\\.pyc$', '__pycache__', '\\.o$'}
 --vim.cmd [[
 --	hi Normal guibg=NONE ctermbg=NONE
 --	hi Visual guibg=#182333
 --]]
 
--- TODO: convert to lua
 vim.cmd [[
-	set termguicolors
-
-	hi NormalCursor guifg=#5E81AC guibg=#81A1C1
-	hi InsertCursor guifg=red guibg=red
-	set guicursor=n:block-NormalCursor/lNormalCursor
-
 	autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-	let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 ]]
+

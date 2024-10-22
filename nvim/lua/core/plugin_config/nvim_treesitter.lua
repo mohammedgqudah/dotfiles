@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup({
-	ensure_installed = { 'lua', 'python', 'php' },
+	ensure_installed = { 'lua', 'python', 'php', 'rust' },
 	auto_install = true,
 	indent = {
 		enable = true,
