@@ -22,15 +22,29 @@ vim.cmd [[
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+	Plug 'tjdevries/colorbuddy.nvim'
+	Plug 'jesseleite/nvim-noirbuddy'
+	Plug 'marko-cerovac/material.nvim'
+	Plug 'AlexvZyl/nordic.nvim'
+	Plug 'rebelot/kanagawa.nvim'
   call plug#end()
 ]]
+
+--require('noirbuddy').setup {
+--  colors = {
+--    primary = '#eceff4', -- is this good?
+--  },
+--}
 
 require('core.plugin_config')
 require('modules.mappings')
 require('modules.commands')
 require('modules.luasnip')
 
-vim.cmd.colorscheme('nord')
+--vim.cmd.colorscheme('nord')
+--vim.cmd.colorscheme('habamax')
+--vim.cmd.colorscheme('nordic')
+vim.cmd.colorscheme('nordic')
 -- in nord the WinSeparator color is white (not on all terminals anyway)
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#3b4252" })
 
@@ -49,15 +63,15 @@ vim.opt.termguicolors = true
 
 
 -- white cursor for insert mode, blue for normal.
-vim.api.nvim_set_hl(0, 'NormalCursor', { fg = '#5E81AC', bg = '#81A1C1' })
+vim.api.nvim_set_hl(0, 'NormalCursor', { fg = '#5E81AC', bg = '#FFFFFF' })
 vim.api.nvim_set_hl(0, 'InsertCursor', { fg = '#FFFFFF', bg = '#FFFFFF' })
 vim.opt.guicursor = {
-    'n:block-NormalCursor/lNormalCursor',
-    'i:block-InsertCursor/lInsertCursor'
+	'n:block-NormalCursor/lNormalCursor',
+	'i:block-InsertCursor/lInsertCursor'
 }
 
 
-vim.g.NERDTreeIgnore = { '\\.pyc$', '__pycache__', '\\.o$'}
+vim.g.NERDTreeIgnore = { '\\.pyc$', '__pycache__', '\\.o$' }
 --vim.cmd [[
 --	hi Normal guibg=NONE ctermbg=NONE
 --	hi Visual guibg=#182333
@@ -67,4 +81,3 @@ vim.cmd [[
 	autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 	autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 ]]
-

@@ -62,3 +62,4 @@ end)
 -- MISC
 u.noremap('n', 'o', 'o<esc>')
 u.noremap('n', 'O', 'O<esc>')
+u.noremap('n', '<leader>lp', '<cmd>:lua vim.diagnostic.open_float()<CR>')

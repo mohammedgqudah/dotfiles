@@ -2,14 +2,22 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local util = require "lspconfig/util"
 
 
+require 'lspconfig'.csharp_ls.setup {}
+--require'lspconfig'.vuels.setup{}
+require 'lspconfig'.svelte.setup {}
+
 require('lspconfig').rust_analyzer.setup({
 	settings = {
 		['rust-analyzer'] = {
 			diagnostics = {
-				enable = false,
+				enable = true,
+				experimental = {
+					enable = true,
+				},
 			},
 			checkOnSave = {
-				command = "clippy"
+				command = "clippy",
+				allTargets = true -- for no_std targets
 			}
 		}
 	}
@@ -23,7 +31,11 @@ require('lspconfig').pyright.setup({
 	venv = ".venv"
 })
 
---require('lspconfig').tsserver.setup({})
+require('lspconfig').ts_ls.setup({
+})
+
+require 'lspconfig'.gopls.setup {}
+
 
 -- make sure to disable diagnostics and ignore vendor directory to improve performance
 -- `$ phpactor config:set language_server.diagnostics_on_update false`
@@ -81,3 +93,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end, opts)
 	end,
 })
+vim.diagnostic.config({ virtual_text = false })
