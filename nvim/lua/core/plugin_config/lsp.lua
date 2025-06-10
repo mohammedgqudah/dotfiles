@@ -2,6 +2,8 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local util = require "lspconfig/util"
 
 
+require('lspconfig').sqls.setup({})
+
 require 'lspconfig'.csharp_ls.setup {}
 --require'lspconfig'.vuels.setup{}
 require 'lspconfig'.svelte.setup {}

@@ -40,11 +40,12 @@ require('core.plugin_config')
 require('modules.mappings')
 require('modules.commands')
 require('modules.luasnip')
+vim.cmd('colorscheme kanagawabones')
 
 --vim.cmd.colorscheme('nord')
 --vim.cmd.colorscheme('habamax')
 --vim.cmd.colorscheme('nordic')
-vim.cmd.colorscheme('nordic')
+--vim.cmd.colorscheme('nordic')
 -- in nord the WinSeparator color is white (not on all terminals anyway)
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#3b4252" })
 
