@@ -102,3 +102,32 @@ source <(kubectl completion zsh)
 
 # Docker
 alias drm="docker container rm"
+
+alias :vnew="tmux split-window -h"
+
+# start a quick python environment for testing "(py)thon(t)est(env)ironment" 
+pytenv() {
+  local tmpdir
+  tmpdir=$(mktemp -d /tmp/pytenv.XXXXXX)
+  cd "$tmpdir" || return
+
+  uv init .
+  uv sync
+
+  tmux split-window -v -c "$tmpdir"
+  tmux send-keys -t 0 'source .venv/bin/activate && nvim' C-m
+  tmux select-pane -t 0
+}
+
+ctenv() {
+  local tmpdir
+  tmpdir=$(mktemp -d /tmp/ctenv.XXXXXX)
+  cd "$tmpdir" || return
+
+  touch main.c
+  echo "run: main\n\t./main\nmain: main.c\n\tgcc main.c -o main" > Makefile
+  tmux split-window -v -c "$tmpdir"
+  tmux send-keys -t 0 'nvim' C-m
+  tmux select-pane -t 0
+}
+

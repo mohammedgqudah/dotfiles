@@ -27,6 +27,7 @@ vim.cmd [[
 	Plug 'marko-cerovac/material.nvim'
 	Plug 'AlexvZyl/nordic.nvim'
 	Plug 'rebelot/kanagawa.nvim'
+	Plug 'sainnhe/everforest'
   call plug#end()
 ]]
 
@@ -40,12 +41,11 @@ require('core.plugin_config')
 require('modules.mappings')
 require('modules.commands')
 require('modules.luasnip')
-vim.cmd('colorscheme kanagawabones')
+--vim.cmd('colorscheme kanagawabones')
 
 --vim.cmd.colorscheme('nord')
 --vim.cmd.colorscheme('habamax')
---vim.cmd.colorscheme('nordic')
---vim.cmd.colorscheme('nordic')
+vim.cmd.colorscheme('nordic')
 -- in nord the WinSeparator color is white (not on all terminals anyway)
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#3b4252" })
 
