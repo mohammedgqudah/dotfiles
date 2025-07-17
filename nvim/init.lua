@@ -28,8 +28,14 @@ vim.cmd [[
 	Plug 'AlexvZyl/nordic.nvim'
 	Plug 'rebelot/kanagawa.nvim'
 	Plug 'sainnhe/everforest'
+	Plug 'inkarkat/vim-mark'
+	Plug 'inkarkat/vim-ingo-library'
+	Plug 'bringsrain/strawberry'
   call plug#end()
 ]]
+
+vim.opt.viminfo:append('!')
+vim.g.mwAutoLoadMarks = 1
 
 --require('noirbuddy').setup {
 --  colors = {
@@ -45,7 +51,8 @@ require('modules.luasnip')
 
 --vim.cmd.colorscheme('nord')
 --vim.cmd.colorscheme('habamax')
-vim.cmd.colorscheme('nordic')
+vim.cmd.colorscheme('strawberry-light')
+vim.opt.guicursor = '';
 -- in nord the WinSeparator color is white (not on all terminals anyway)
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#3b4252" })
 
@@ -66,10 +73,10 @@ vim.opt.termguicolors = true
 -- white cursor for insert mode, blue for normal.
 vim.api.nvim_set_hl(0, 'NormalCursor', { fg = '#5E81AC', bg = '#FFFFFF' })
 vim.api.nvim_set_hl(0, 'InsertCursor', { fg = '#FFFFFF', bg = '#FFFFFF' })
-vim.opt.guicursor = {
-	'n:block-NormalCursor/lNormalCursor',
-	'i:block-InsertCursor/lInsertCursor'
-}
+--vim.opt.guicursor = {
+--	'n:block-NormalCursor/lNormalCursor',
+--	'i:block-InsertCursor/lInsertCursor'
+--}
 
 
 vim.g.NERDTreeIgnore = { '\\.pyc$', '__pycache__', '\\.o$' }
