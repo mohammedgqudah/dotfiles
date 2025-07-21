@@ -114,7 +114,7 @@ pytenv() {
   uv init .
   uv sync
 
-  tmux split-window -v -c "$tmpdir"
+  tmux split-window -h -c "$tmpdir"
   tmux send-keys -t 0 'source .venv/bin/activate && nvim' C-m
   tmux select-pane -t 0
 }
@@ -126,7 +126,8 @@ ctenv() {
 
   touch main.c
   echo "run: main\n\t./main\nmain: main.c\n\tgcc main.c -o main" > Makefile
-  tmux split-window -v -c "$tmpdir"
+  echo "#include <stdio.h>\n\nint main(int argc, char **argv) {\n\t\n}" > main.c
+  tmux split-window -h -c "$tmpdir"
   tmux send-keys -t 0 'nvim' C-m
   tmux select-pane -t 0
 }
