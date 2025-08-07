@@ -2,7 +2,7 @@
 #	print -rP "%F{blue}[%~]%f"
 #}
 #PS1='%F{blue}>>%f '
-plugins=(git)
+#plugins=(git)
 
 # aliases
 #
@@ -98,7 +98,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export MANPAGER='nvim +Man!'
 
 # auto complete
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 
 # Docker
 alias drm="docker container rm"

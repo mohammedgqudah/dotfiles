@@ -31,8 +31,18 @@ vim.cmd [[
 	Plug 'inkarkat/vim-mark'
 	Plug 'inkarkat/vim-ingo-library'
 	Plug 'bringsrain/strawberry'
+	Plug 'sindrets/diffview.nvim'
+	Plug 'NeogitOrg/neogit'
   call plug#end()
 ]]
+
+require('telescope').setup{
+      pickers = {
+        colorscheme = {
+          enable_preview = true
+        }
+      }
+}
 
 vim.opt.viminfo:append('!')
 vim.g.mwAutoLoadMarks = 1
@@ -49,9 +59,8 @@ require('modules.commands')
 require('modules.luasnip')
 --vim.cmd('colorscheme kanagawabones')
 
---vim.cmd.colorscheme('nord')
+vim.cmd.colorscheme('nord')
 --vim.cmd.colorscheme('habamax')
-vim.cmd.colorscheme('strawberry-light')
 vim.opt.guicursor = '';
 -- in nord the WinSeparator color is white (not on all terminals anyway)
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#3b4252" })

@@ -2,6 +2,14 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local util = require "lspconfig/util"
 
 
+require("lspconfig").tinymist.setup {
+        settings = {
+                formatterMode = "typstyle",
+                exportPdf = "onType",
+                semanticTokens = "disable"
+        }
+}
+--require('lspconfig').zls.setup({})
 require('lspconfig').sqls.setup({})
 
 require 'lspconfig'.csharp_ls.setup {}
@@ -17,10 +25,7 @@ require('lspconfig').rust_analyzer.setup({
 					enable = true,
 				},
 			},
-			checkOnSave = {
-				command = "clippy",
-				allTargets = true -- for no_std targets
-			}
+			checkOnSave = true
 		}
 	}
 })
@@ -32,6 +37,10 @@ require('lspconfig').pyright.setup({
 	venvPath = ".",
 	venv = ".venv"
 })
+--vim.lsp.config('ty', {
+--	cmd = {"uvx", "ty", "server" }
+--});
+vim.lsp.enable('ty');
 
 require('lspconfig').ts_ls.setup({
 })
