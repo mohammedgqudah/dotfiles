@@ -25,7 +25,10 @@ require('lspconfig').rust_analyzer.setup({
 					enable = true,
 				},
 			},
-			checkOnSave = true
+			checkOnSave = true,
+			cargo = {
+				allTargets = false
+			}
 		}
 	}
 })

@@ -33,9 +33,15 @@ vim.cmd [[
 	Plug 'bringsrain/strawberry'
 	Plug 'sindrets/diffview.nvim'
 	Plug 'NeogitOrg/neogit'
+	Plug 'neanias/everforest-nvim'
+	Plug 'shortcuts/no-neck-pain.nvim'
+	Plug 'susliko/tla.nvim'
+	Plug 'terrastruct/d2-vim'
+	Plug 'mmarchini/bpftrace.vim'
   call plug#end()
 ]]
 
+--require('tla').setup()
 require('telescope').setup{
       pickers = {
         colorscheme = {
@@ -59,7 +65,7 @@ require('modules.commands')
 require('modules.luasnip')
 --vim.cmd('colorscheme kanagawabones')
 
-vim.cmd.colorscheme('nord')
+vim.cmd.colorscheme('tokyonight-night')
 --vim.cmd.colorscheme('habamax')
 vim.opt.guicursor = '';
 -- in nord the WinSeparator color is white (not on all terminals anyway)
