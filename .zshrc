@@ -95,7 +95,8 @@ function bindiff() {
 #export LC_ALL=en_IN.UTF-8
 #export LANG=en_IN.UTF-8
 export HOMEBREW_NO_AUTO_UPDATE=1
-export MANPAGER='nvim +Man!'
+#export MANPAGER='nvim +Man!'
+export MANPAGER='nvim -c "colorscheme everforest" +Man!'
 
 # auto complete
 #source <(kubectl completion zsh)
@@ -132,3 +133,6 @@ ctenv() {
   tmux select-pane -t 0
 }
 
+bindkey -v
+bindkey ^R history-incremental-search-backward 
+bindkey ^S history-incremental-search-forward
