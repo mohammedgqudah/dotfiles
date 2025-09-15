@@ -3,6 +3,8 @@
 #}
 #PS1='%F{blue}>>%f '
 #plugins=(git)
+PROMPT='%F{green}%n%f@%m %~
+λ '
 
 # aliases
 #
